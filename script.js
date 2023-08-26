@@ -93,3 +93,8 @@ const compatible = document.getElementById("sign-compitable");
 if (compatible != null) {
     compatible.innerHTML = sessionStorage.getItem("compatible");
 }
+
+const signImage = document.getElementById("sign-image");
+if (signImage != null) {
+    signImage.src = "sign-images/" + sessionStorage.getItem("sunSign") + ".png";
+}
