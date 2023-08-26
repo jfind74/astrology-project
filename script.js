@@ -55,8 +55,18 @@ if (userForm != null) {
             result = calculateAstrology(birthDate.value);
             sessionStorage.setItem("elements", result.elements);
             sessionStorage.setItem("compatible", result.compatible);
+            sessionStorage.setItem("sunSign", result.name);
         }
         event.preventDefault();
         window.location.href = 'result.html';
     })
+}
+
+const signName = document.getElementById("sign-name");
+if (signName != null) {
+    console.log(sessionStorage.getItem("sunSign"));
+    if (signName != null) {
+        console.log("here");
+        signName.innerHTML = sessionStorage.getItem("sunSign");
+    }
 }
