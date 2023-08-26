@@ -14,6 +14,7 @@ const Capricorn = { name:"Capricorn",date: "22/12 - 19/1",elements: "Earth",comp
 const Aquarius = { name:"Aquarius",date: "20/1 - 18/2",elements: "Air",compatible:"Gemini, Libra"}
 const Pisces = { name:"Pisces",date: "19/2 - 20/3",elements: "Water",compatible:"cancer, Scorpio"}
 
+
 // store the astological sign in sessionStorage value sunSign
 function calculateAstrology(date) {
     let compareDay = date.slice(5); // date in form "MM-DD"
@@ -56,5 +57,6 @@ if (userForm != null) {
             sessionStorage.setItem("compatible", result.compatible);
         }
         event.preventDefault();
+        window.location.href = 'result.html';
     })
 }
