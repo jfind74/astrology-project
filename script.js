@@ -54,10 +54,15 @@ if (userForm != null) {
         let birthDate = document.getElementById("birth-date");
         let birthTime = document.getElementById("birth-time");
         if (birthDate != null) {
+            sessionStorage.setItem("birthDate", birthDate.value);
             result = calculateAstrology(birthDate.value);
             sessionStorage.setItem("elements", result.elements);
             sessionStorage.setItem("compatible", result.compatible);
             sessionStorage.setItem("sunSign", result.name);
+        }
+        let userName = document.getElementById("user-name");
+        if (userName != null) {
+            sessionStorage.setItem("userName", userName.value);
         }
         event.preventDefault();
         window.location.href = 'result.html';
@@ -67,4 +72,24 @@ if (userForm != null) {
 const signName = document.getElementById("sign-name");
 if (signName != null) {
     signName.innerHTML = sessionStorage.getItem("sunSign");
+}
+
+const namePlace = document.getElementById("name");
+if (namePlace != null) {
+    namePlace.innerHTML = sessionStorage.getItem("userName");
+}
+
+const dobPlace = document.getElementById("DoB");
+if (dobPlace != null) {
+    dobPlace.innerHTML = sessionStorage.getItem("birthDate");
+}
+
+const element = document.getElementById("element");
+if (element != null) {
+    element.innerHTML = sessionStorage.getItem("elements");
+}
+
+const compatible = document.getElementById("sign-compitable");
+if (compatible != null) {
+    compatible.innerHTML = sessionStorage.getItem("compatible");
 }
