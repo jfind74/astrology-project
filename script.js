@@ -1,19 +1,19 @@
 const userForm = document.getElementById("user-form");
 
-console.log(sessionStorage.getItem("birthDate"));
+// store the astological sign in sessionStorage value sunSign
+function calculateAstrology(month, day) {
+    console.log(month)
+}
 
 if (userForm != null) {
     userForm.addEventListener("submit", function (event) {
         let birthDate = document.getElementById("birth-date");
         let birthTime = document.getElementById("birth-time");
         if (birthDate != null) {
-            calculateAstrology(birthDate.value, birthTime.value);
+            let month = birthDate.value.slice(5,7);
+            let day = birthDate.value.slice(8,10);
+            calculateAstrology(month, day);
         }
         event.preventDefault();
     })
-}
-
-function calculateAstrology(date, time) {
-    console.log(date);
-    console.log(time);
 }
