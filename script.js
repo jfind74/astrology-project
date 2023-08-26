@@ -14,6 +14,7 @@ const Capricorn = { name:"Capricorn",date: "22/12 - 19/1",elements: "Earth",comp
 const Aquarius = { name:"Aquarius",date: "20/1 - 18/2",elements: "Air",compatible:"Gemini, Libra"}
 const Pisces = { name:"Pisces",date: "19/2 - 20/3",elements: "Water",compatible:"cancer, Scorpio"}
 
+
 // store the astological sign in sessionStorage value sunSign
 function calculateAstrology(date) {
     let compareDay = date.slice(5); // date in form "MM-DD"
@@ -29,16 +30,18 @@ function calculateAstrology(date) {
     } else if (compareDay <= "05-20") {
         result = Taurus;
     } else if (compareDay <= "06-21") {
-        result = Cancer;
+        result = Gemini;
     } else if (compareDay <= "07-22") {
-        result = Leo;
+        result = Cancer;
     } else if (compareDay <= "08-22") {
-        result = Virgo;
+        result = Leo;
     } else if (compareDay <= "09-22") {
-        result = Libra;
+        result = Virgo;
     } else if (compareDay <= "10-23") {
-        result = Scorpio;
+        result = Libra;
     } else if (compareDay <= "11-22") {
+        result = Scorpio;
+    } else if (compareDay <= "21-12") {
         result = Sagittarius;
     } else {
         result = Capricorn;
@@ -54,7 +57,14 @@ if (userForm != null) {
             result = calculateAstrology(birthDate.value);
             sessionStorage.setItem("elements", result.elements);
             sessionStorage.setItem("compatible", result.compatible);
+            sessionStorage.setItem("sunSign", result.name);
         }
         event.preventDefault();
+        window.location.href = 'result.html';
     })
+}
+
+const signName = document.getElementById("sign-name");
+if (signName != null) {
+    signName.innerHTML = sessionStorage.getItem("sunSign");
 }
