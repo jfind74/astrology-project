@@ -64,9 +64,5 @@ if (userForm != null) {
 
 const signName = document.getElementById("sign-name");
 if (signName != null) {
-    console.log(sessionStorage.getItem("sunSign"));
-    if (signName != null) {
-        console.log("here");
-        signName.innerHTML = sessionStorage.getItem("sunSign");
-    }
+    signName.innerHTML = sessionStorage.getItem("sunSign");
 }
