@@ -30,16 +30,18 @@ function calculateAstrology(date) {
     } else if (compareDay <= "05-20") {
         result = Taurus;
     } else if (compareDay <= "06-21") {
-        result = Cancer;
+        result = Gemini;
     } else if (compareDay <= "07-22") {
-        result = Leo;
+        result = Cancer;
     } else if (compareDay <= "08-22") {
-        result = Virgo;
+        result = Leo;
     } else if (compareDay <= "09-22") {
-        result = Libra;
+        result = Virgo;
     } else if (compareDay <= "10-23") {
-        result = Scorpio;
+        result = Libra;
     } else if (compareDay <= "11-22") {
+        result = Scorpio;
+    } else if (compareDay <= "21-12") {
         result = Sagittarius;
     } else {
         result = Capricorn;
