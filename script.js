@@ -73,7 +73,8 @@ if (userForm != null) {
             sessionStorage.setItem("sunSign", result.name);
             sessionStorage.setItem("like", result.like);
             sessionStorage.setItem("dislike", result.dislike);
-            sessionStorage.setItem("romance", result.romance)
+            sessionStorage.setItem("romance", result.romance);
+            sessionStorage.setItem("char", result.characteristics);
             //let risingSign = calculateRising(result, birthTime.value);
             //sessionStorage.setItem("risingSign", risingSign.name);
             sessionStorage.setItem("dateRange", result.date); // date range for the sign
@@ -127,10 +128,15 @@ if (like != null) {
 
 const dislike = document.getElementById("dislike");
 if (dislike != null) {
-    dislike.innerHTML = sessionStorage.getItem("dislike")
+    dislike.innerHTML = sessionStorage.getItem("dislike");
 }
 
 const romance = document.getElementById("romance");
 if (romance != null) {
-    romance.innerHTML = sessionStorage.getItem("romance")
+    romance.innerHTML = sessionStorage.getItem("romance");
+}
+
+const zodiacChar = document.getElementById("zodic-char");
+if (zodiacChar != null) {
+    zodiacChar.innerHTML = sessionStorage.getItem("char");
 }
