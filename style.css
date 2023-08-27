@@ -38,6 +38,7 @@ form {
     background-color: #fcf6f7;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    min-height: 100%;
 }
 
 form div {
@@ -59,6 +60,8 @@ b {
 
 #sign-image {
     display: block;
-    max-width: 100%;
+    max-width: 40%;
     margin: 0 auto;
+    margin-right: 5%;
+    float: left;
 }
