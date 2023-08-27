@@ -1,18 +1,18 @@
 const userForm = document.getElementById("user-form");
 
 // contains information about the signs
-const Aries = { name:"Aries",date: "21/3 - 19/4",elements: "Fire",compatible:"Leo, Sagittarius", index:0}
-const Taurus = { name:"Taurus",date: "20/4 - 20/5",elements: "Earth",compatible:"Virgo, Capricorn", index:1}
-const Gemini = { name:"Gemini",date: "21/5 - 21/6",elements: "Air",compatible:"Libra, Auquarius", index:2}
-const Cancer = { name:"Cancer",date: "22/6 - 22/7",elements: "Water",compatible:"Scorpio, Pisces", index:3}
-const Leo = { name:"Leo",date: "23/7 - 22/8",elements: "Fire",compatible:"Aries, Sagittarius", index:4}
-const Virgo = { name:"Virgo",date: "23/8 - 22/9",elements: "Earth",compatible:"Capricorn, Taurus", index:5}
-const Libra = { name:"Libra",date: "23/9 - 23/10",elements: "Air",compatible:"Gemini, Aquarius", index:6}
-const Scorpio = { name:"Scorpio",date: "24/10 - 22/11",elements: "Water",compatible:"Cancer, Pisces", index:7}
-const Sagittarius = { name:"Sagittarius",date: "23/11 - 21/12",elements: "Fire",compatible:"Aries, Leo", index:8}
-const Capricorn = { name:"Capricorn",date: "22/12 - 19/1",elements: "Earth",compatible:"Taurus, Virgo", index:9}
-const Aquarius = { name:"Aquarius",date: "20/1 - 18/2",elements: "Air",compatible:"Gemini, Libra", index:10}
-const Pisces = { name:"Pisces",date: "19/2 - 20/3",elements: "Water",compatible:"cancer, Scorpio", index:11}
+const Aries = { name:"Aries",date: "21/3 - 19/4",elements: "Fire",compatible:"Leo, Sagittarius",characteristics:"dynamic, confident, and adventurous",like:"taking the lead and trying new things",dislike:"being held back by rules",romance:"they're passionate and enjoy a chase",rising:"Energetic, Assertive, Dynamic"}
+const Taurus = { name:"Taurus",date: "20/4 - 20/5",elements: "Earth",compatible:"Virgo, Capricorn",characteristics:"reliable, patient, and practical",like:"taking the lead and trying new things",dislike:"sudden changes",romance:"they're affectionate and seek security",rising:"Grounded, Sensual, Calm"}
+const Gemini = { name:"Gemini",date: "21/5 - 21/6",elements: "Air",compatible:"Libra, Auquarius",characteristics:"curious, adaptable, and witty",like:"learning and socializing",dislike:"like boredom",romance:"they're charming and seek mental stimulation",rising:"Curious, Adaptable, Witty"}
+const Cancer = { name:"Cancer",date: "22/6 - 22/7",elements: "Water",compatible:"Scorpio, Pisces",characteristics:"nurturing, intuitive, and empathetic",like:" creating a cozy home and emotional connections",dislike:"feeling vulnerable",romance:"they're devoted and seek emotional depth",rising:"Nurturing, Sensitive, Protective"}
+const Leo = { name:"Leo",date: "23/7 - 22/8",elements: "Fire",compatible:"Aries, Sagittarius",characteristics:"confident, charismatic, and creative",like:"being the center of attention and expressing themselves",dislike:"being ignored",romance:"they're generous and seek admiration",rising:"Charismatic, Confident, Theatrical"}
+const Virgo = { name:"Virgo",date: "23/8 - 22/9",elements: "Earth",compatible:"Capricorn, Taurus",characteristics:"practical, detail-oriented, and analytical",like:"organization and helping others",dislike:"chaos",romance:"they're loyal and seek practical compatibility",rising:"Analytical, Organized, Practical"}
+const Libra = { name:"Libra",date: "23/9 - 23/10",elements: "Air",compatible:"Gemini, Aquarius",characteristics:"charming, diplomatic, and sociable",like:"balance and beauty",dislike:"conflict",romance:"they're romantic and seek harmony",rising:"Charming, Diplomatic, Harmonious"}
+const Scorpio = { name:"Scorpio",date: "24/10 - 22/11",elements: "Water",compatible:"Cancer, Pisces",characteristics:"intense, intuitive, and determined",like:"depth and uncovering secrets",dislike:"betrayal",romance:"they're passionate and seek deep connections",rising:"Intense, Mysterious, Magnetic"}
+const Sagittarius = { name:"Sagittarius",date: "23/11 - 21/12",elements: "Fire",compatible:"Aries, Leo",characteristics:"adventurous, optimistic, and independent",like:"exploring and freedom",dislike:"restrictions",romance:"they're open-minded and seek shared adventures.",rising:"Adventurous, Optimistic, Lively"}
+const Capricorn = { name:"Capricorn",date: "22/12 - 19/1",elements: "Earth",compatible:"Taurus, Virgo",characteristics:"responsible, disciplined, and ambitious",like:"success and tradition",dislike:"inefficiency",romance:"they're patient and seek a partner for the long haul",rising:"Responsible, Disciplined, Composed"}
+const Aquarius = { name:"Aquarius",date: "20/1 - 18/2",elements: "Air",compatible:"Gemini, Libra",characteristics:"innovative, independent, and humanitarian",like:"intellectual pursuits and making a difference",dislike:"conformity",romance:"they're unique and seek mental rapport",rising:"Unique, Independent, Forward-thinking"}
+const Pisces = { name:"Pisces",date: "19/2 - 20/3",elements: "Water",compatible:"cancer, Scorpio",characteristics:"empathetic, artistic, and intuitive",like:"daydreaming and creative expression",dislike:"harsh realities",romance:"they're romantic and seek a deep soul connection",rising:"Empathetic, Dreamy, Artistic"}
 
 const signs = [Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces];
 
@@ -82,10 +82,8 @@ if (userForm != null) {
     })
 }
 
-const signName = document.getElementById("sign-name");
-if (signName != null) {
-    signName.innerHTML = sessionStorage.getItem("sunSign");
-}
+const signName = document.getElementsByClassName("sign-name");
+[].slice.call(signName).forEach(function (location) {location.innerHTML = sessionStorage.getItem("sunSign")});
 
 const namePlace = document.getElementById("name");
 if (namePlace != null) {
