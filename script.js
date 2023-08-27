@@ -56,8 +56,9 @@ function getnthNextSign(sign, n) {
 }
 
 function calculateRising(sunSign, birthTime) {
-    hourOfBirth = Number(birthTime.slice(0,2))
-    return getnthNextSign(result, Math.floor((hourOfBirth - 4) / 2))
+    hourOfBirth = Number(birthTime.slice(0,2));
+    var result =  getnthNextSign(result, Math.floor((hourOfBirth - 4) / 2));
+    return result;
 }
 
 if (userForm != null) {
@@ -70,8 +71,9 @@ if (userForm != null) {
             sessionStorage.setItem("elements", result.elements);
             sessionStorage.setItem("compatible", result.compatible);
             sessionStorage.setItem("sunSign", result.name);
-            sessionStorage.setItem("risingSign", calculateRising(result, birthTime.value).name)
-            sessionStorage.setItem("dateRange", result.date) // date range for the sign
+            //let risingSign = calculateRising(result, birthTime.value);
+            //sessionStorage.setItem("risingSign", risingSign.name);
+            sessionStorage.setItem("dateRange", result.date); // date range for the sign
         }
         let userName = document.getElementById("user-name");
         if (userName != null) {
