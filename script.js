@@ -52,7 +52,7 @@ function calculateAstrology(date) {
 
 // allows cycling through signs to calculate the rising signs
 function getnthNextSign(sign, n) {
-    return signs[(sign.index + n) % 12];
+    return signs[(sign.index + n) % 12]
 }
 
 function calculateRising(sunSign, birthTime) {
