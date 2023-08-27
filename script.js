@@ -71,6 +71,8 @@ if (userForm != null) {
             sessionStorage.setItem("elements", result.elements);
             sessionStorage.setItem("compatible", result.compatible);
             sessionStorage.setItem("sunSign", result.name);
+            sessionStorage.setItem("like", result.like);
+            sessionStorage.setItem("dislike", result.dislike);
             //let risingSign = calculateRising(result, birthTime.value);
             //sessionStorage.setItem("risingSign", risingSign.name);
             sessionStorage.setItem("dateRange", result.date); // date range for the sign
@@ -115,4 +117,14 @@ if (signImage != null) {
 const dateRange = document.getElementById("date");
 if (dateRange != null) {
     dateRange.innerHTML = sessionStorage.getItem("dateRange");
+}
+
+const like = document.getElementById("like");
+if (like != null) {
+    like.innerHTML = sessionStorage.getItem("like")
+}
+
+const dislike = document.getElementById("dislike");
+if (dislike != null) {
+    dislike.innerHTML = sessionStorage.getItem("dislike")
 }
