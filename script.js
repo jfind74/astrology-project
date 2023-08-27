@@ -73,6 +73,7 @@ if (userForm != null) {
             sessionStorage.setItem("sunSign", result.name);
             sessionStorage.setItem("like", result.like);
             sessionStorage.setItem("dislike", result.dislike);
+            sessionStorage.setItem("romance", result.romance)
             //let risingSign = calculateRising(result, birthTime.value);
             //sessionStorage.setItem("risingSign", risingSign.name);
             sessionStorage.setItem("dateRange", result.date); // date range for the sign
@@ -127,4 +128,9 @@ if (like != null) {
 const dislike = document.getElementById("dislike");
 if (dislike != null) {
     dislike.innerHTML = sessionStorage.getItem("dislike")
+}
+
+const romance = document.getElementById("romance");
+if (romance != null) {
+    romance.innerHTML = sessionStorage.getItem("romance")
 }
