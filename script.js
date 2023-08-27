@@ -1,19 +1,20 @@
 const userForm = document.getElementById("user-form");
 
 // contains information about the signs
-const Aries = { name:"Aries",date: "21/3 - 19/4",elements: "Fire",compatible:"Leo, Sagittarius"}
-const Taurus = { name:"Taurus",date: "20/4 - 20/5",elements: "Earth",compatible:"Virgo, Capricorn"}
-const Gemini = { name:"Gemini",date: "21/5 - 21/6",elements: "Air",compatible:"Libra, Auquarius"}
-const Cancer = { name:"Cancer",date: "22/6 - 22/7",elements: "Water",compatible:"Scorpio, Pisces"}
-const Leo = { name:"Leo",date: "23/7 - 22/8",elements: "Fire",compatible:"Aries, Sagittarius"}
-const Virgo = { name:"Virgo",date: "23/8 - 22/9",elements: "Earth",compatible:"Capricorn, Taurus"}
-const Libra = { name:"Libra",date: "23/9 - 23/10",elements: "Air",compatible:"Gemini, Aquarius"}
-const Scorpio = { name:"Scorpio",date: "24/10 - 22/11",elements: "Water",compatible:"Cancer, Pisces"}
-const Sagittarius = { name:"Sagittarius",date: "23/11 - 21/12",elements: "Fire",compatible:"Aries, Leo"}
-const Capricorn = { name:"Capricorn",date: "22/12 - 19/1",elements: "Earth",compatible:"Taurus, Virgo"}
-const Aquarius = { name:"Aquarius",date: "20/1 - 18/2",elements: "Air",compatible:"Gemini, Libra"}
-const Pisces = { name:"Pisces",date: "19/2 - 20/3",elements: "Water",compatible:"cancer, Scorpio"}
+const Aries = { name:"Aries",date: "21/3 - 19/4",elements: "Fire",compatible:"Leo, Sagittarius", index:0}
+const Taurus = { name:"Taurus",date: "20/4 - 20/5",elements: "Earth",compatible:"Virgo, Capricorn", index:1}
+const Gemini = { name:"Gemini",date: "21/5 - 21/6",elements: "Air",compatible:"Libra, Auquarius", index:2}
+const Cancer = { name:"Cancer",date: "22/6 - 22/7",elements: "Water",compatible:"Scorpio, Pisces", index:3}
+const Leo = { name:"Leo",date: "23/7 - 22/8",elements: "Fire",compatible:"Aries, Sagittarius", index:4}
+const Virgo = { name:"Virgo",date: "23/8 - 22/9",elements: "Earth",compatible:"Capricorn, Taurus", index:5}
+const Libra = { name:"Libra",date: "23/9 - 23/10",elements: "Air",compatible:"Gemini, Aquarius", index:6}
+const Scorpio = { name:"Scorpio",date: "24/10 - 22/11",elements: "Water",compatible:"Cancer, Pisces", index:7}
+const Sagittarius = { name:"Sagittarius",date: "23/11 - 21/12",elements: "Fire",compatible:"Aries, Leo", index:8}
+const Capricorn = { name:"Capricorn",date: "22/12 - 19/1",elements: "Earth",compatible:"Taurus, Virgo", index:9}
+const Aquarius = { name:"Aquarius",date: "20/1 - 18/2",elements: "Air",compatible:"Gemini, Libra", index:10}
+const Pisces = { name:"Pisces",date: "19/2 - 20/3",elements: "Water",compatible:"cancer, Scorpio", index:11}
 
+const signs = [Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces];
 
 // store the astological sign in sessionStorage value sunSign
 function calculateAstrology(date) {
@@ -49,6 +50,16 @@ function calculateAstrology(date) {
     return result
 }
 
+// allows cycling through signs to calculate the rising signs
+function getnthNextSign(sign, n) {
+    return signs[(sign.index + n) % 12];
+}
+
+function calculateRising(sunSign, birthTime) {
+    hourOfBirth = Number(birthTime.slice(0,2))
+    return getnthNextSign(result, Math.floor((hourOfBirth - 4) / 2))
+}
+
 if (userForm != null) {
     userForm.addEventListener("submit", function (event) {
         let birthDate = document.getElementById("birth-date");
@@ -59,6 +70,7 @@ if (userForm != null) {
             sessionStorage.setItem("elements", result.elements);
             sessionStorage.setItem("compatible", result.compatible);
             sessionStorage.setItem("sunSign", result.name);
+            sessionStorage.setItem("risingSign", calculateRising(result, birthTime.value).name)
         }
         let userName = document.getElementById("user-name");
         if (userName != null) {
